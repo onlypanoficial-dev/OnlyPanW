@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnlyPan S.R.L. | Panadería Artesanal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ======== ESTILOS GENERALES ======== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f5f2;
+      color: #3a2a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #9b5c2b;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      background: #d9b08c;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #3a2a1a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #9b5c2b;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #9b5c2b;
+    }
+
+    /* ======== PRODUCTOS ======== */
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .producto {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .producto h3 {
+      margin: 15px 0 5px;
+      color: #9b5c2b;
+    }
+
+    .producto a {
+      display: inline-block;
+      margin: 10px 0 20px;
+      padding: 8px 20px;
+      background: #9b5c2b;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .producto a:hover {
+      background: #b97445;
+    }
+
+    /* ======== SECCIONES ======== */
+    section {
+      margin: 50px 0;
+    }
+
+    .info {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .info h2 {
+      color: #9b5c2b;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #9b5c2b;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #d9b08c;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header { font-size: 18px; }
+      nav a { font-size: 14px; }
+      .producto img { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>OnlyPan S.R.L.</header>
+
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#historia">Nuestra Historia</a>
+    <a href="#vision">Visión</a>
+    <a href="#mision">Misión</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="container">
+
+    <section id="productos">
+      <h1>Nuestros Productos</h1>
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/pan-hamburguesa.jpg" alt="Pan de Hamburguesa">
+          <h3>Pan de Hamburguesa</h3>
+          <a href="recetas/hamburguesa.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-pizza.jpg" alt="Pan tipo Pizza">
+          <h3>Pan Tipo Pizza</h3>
+          <a href="recetas/pizza.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-salvado.jpg" alt="Pan de Salvado">
+          <h3>Pan de Salvado</h3>
+          <a href="recetas/salvado.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-queso.jpg" alt="Pan de Queso y Orégano">
+          <h3>Pan de Queso y Orégano</h3>
+          <a href="recetas/queso.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-dulce.jpg" alt="Pan Dulce con Chips de Chocolate">
+          <h3>Pan Dulce con Chips</h3>
+          <a href="recetas/dulce.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-relleno.jpg" alt="Pan Relleno de Jamón y Queso">
+          <h3>Pan Relleno</h3>
+          <a href="recetas/relleno.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-campo.jpg" alt="Pan de Campo">
+          <h3>Pan de Campo</h3>
+          <a href="recetas/campo.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-frances.jpg" alt="Pan Francés">
+          <h3>Pan Francés</h3>
+          <a href="recetas/frances.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-integral.jpg" alt="Pan Integral">
+          <h3>Pan Integral</h3>
+          <a href="recetas/integral.html">Ver Receta</a>
+        </div>
+        <div class="producto">
+          <img src="assets/pan-sintacc.jpg" alt="Pan Sin TACC">
+          <h3>Pan de Molde Sin TACC</h3>
+          <a href="recetas/sintacc.html">Ver Receta</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia" class="info">
+      <h2>Nuestra Historia</h2>
+      <p>OnlyPan nació en 2025 como un proyecto entre un grupo de estudiantes apasionados por la panadería artesanal. Nuestro objetivo fue crear productos frescos, de calidad y elaborados con dedicación. Este proyecto nos permitió aprender sobre producción, administración y trabajo en equipo.</p>
+    </section>
+
+    <section id="vision" class="info">
+      <h2>Visión de la Empresa</h2>
+      <p>Convertirnos en una empresa escolar modelo, reconocida por la calidad y variedad de nuestros productos de panadería artesanal, así como por el trabajo en equipo, la responsabilidad y el compromiso de cada integrante. Buscamos que OnlyPan S.R.L. sea un proyecto donde aprendamos sobre producción, administración, ventas y valores empresariales, aplicando lo aprendido para lograr un resultado real en la feria de fin de año y dejar una experiencia positiva para los futuros estudiantes que continúen con el emprendimiento.</p>
+    </section>
+
+    <section id="mision" class="info">
+      <h2>Misión de la Empresa</h2>
+      <p>Elaborar distintos tipos de panes frescos y de calidad. Trabajamos en equipo para ofrecer productos ricos, variados y elaborados con responsabilidad, higiene y compromiso.</p>
+    </section>
+
+    <section id="contacto" class="info">
+      <h2>Contacto</h2>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/onlypansrl/" target="_blank">@onlypansrl</a></p>
+      <p><strong>TikTok:</strong> <a href="https://www.tiktok.com/@onlypansrl" target="_blank">@onlypansrl</a></p>
+      <p><strong>Ubicación:</strong> Gdor. Arias 3550, Castelar - Bs. As.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 OnlyPan S.R.L. | Panadería Artesanal | Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
+
+
