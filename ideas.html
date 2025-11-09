@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideas de Comida - OnlyPan</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+    }
+
+    header {
+      background-color: #8b4b2e;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    nav {
+      background-color: #d7b89c;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #4a2b15;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      text-align: center;
+      padding: 40px 10%;
+    }
+
+    h2 {
+      color: #8b4b2e;
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+
+    .ideas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .idea {
+      background-color: #fff3e6;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .idea:hover {
+      transform: scale(1.05);
+    }
+
+    .idea img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .idea h3 {
+      color: #8b4b2e;
+      margin-bottom: 10px;
+    }
+
+    .idea p {
+      font-size: 14px;
+      color: #5c4033;
+    }
+
+    footer {
+      background-color: #8b4b2e;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OnlyPan S.R.L.</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="ideas.html">Ideas de comida</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <section>
+    <h2>Ideas para disfrutar nuestros panes</h2>
+    <div class="ideas-grid">
+      <div class="idea">
+        <img src="assets/sandwich.jpg" alt="Sandwich artesanal">
+        <h3>Sándwich artesanal</h3>
+        <p>Usá nuestro pan de hamburguesa o pan de campo para preparar sándwiches frescos con jamón, queso y vegetales.</p>
+      </div>
+      <div class="idea">
+        <img src="assets/bruschetta.jpg" alt="Bruschettas">
+        <h3>Bruschettas</h3>
+        <p>Tostá el pan francés o de salvado y añadí tomate, ajo, albahaca y aceite de oliva. ¡Un clásico italiano!</p>
+      </div>
+      <div class="idea">
+        <img src="assets/tostadas.jpg" alt="Tostadas dulces">
+        <h3>Tostadas dulces</h3>
+        <p>El pan integral o sin TACC son ideales para desayunos con miel, mermelada o manteca.</p>
+      </div>
+      <div class="idea">
+        <img src="assets/panpizza.jpg" alt="Mini pizzas">
+        <h3>Mini pizzas</h3>
+        <p>Con nuestro pan tipo pizza, prepará mini pizzas con salsa, queso y tus ingredientes favoritos.</p>
+      </div>
+      <div class="idea">
+        <img src="assets/panrelleno.jpg" alt="Pan relleno">
+        <h3>Pan relleno</h3>
+        <p>Probá rellenar el pan de campo con jamón, queso o vegetales asados. Ideal para reuniones.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 OnlyPan S.R.L. - Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
