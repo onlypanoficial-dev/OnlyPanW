@@ -7,40 +7,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     .ideas-cuadro {
-  background-color: #f0e0d0;
-  text-align: center;
-  padding: 100px 20px;
-  border-radius: 15px;
-  margin: 50px auto;
-  width: 80%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+      background-color: #f0e0d0;
+      text-align: center;
+      padding: 100px 20px;
+      border-radius: 15px;
+      margin: 50px auto;
+      width: 80%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-.ideas-cuadro h2 {
-  color: #8b4b2e;
-  font-size: 36px;
-  margin-bottom: 15px;
-}
+    .ideas-cuadro h2 {
+      color: #8b4b2e;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
 
-.ideas-cuadro p {
-  color: #5c4033;
-  font-size: 18px;
-  margin-bottom: 30px;
-}
+    .ideas-cuadro p {
+      color: #5c4033;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
 
-.ideas-cuadro .btn {
-  background-color: #8b4b2e;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
+    .ideas-cuadro .btn {
+      background-color: #8b4b2e;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
 
-.ideas-cuadro .btn:hover {
-  background-color: #a25d3a;
-}
+    .ideas-cuadro .btn:hover {
+      background-color: #a25d3a;
+    }
 
     * {
       margin: 0;
@@ -52,6 +52,7 @@
       font-family: 'Poppins', sans-serif;
       background: #f8f5f2;
       color: #3a2a1a;
+      scroll-behavior: smooth;
     }
 
     /* ===== HEADER ===== */
@@ -66,6 +67,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      cursor: pointer;
     }
 
     header .logo {
@@ -112,33 +114,31 @@
       color: #3a2a1a;
     }
 
-nav {
-  background-color: #f6efe7; /* Fondo claro o beige suave */
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  padding: 14px 0;
-  /* border-bottom: 2px solid #d4a574;  <- la línea marrón, eliminada */
-}
+    nav {
+      background-color: #f6efe7;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 14px 0;
+    }
 
-nav a {
-  background-color: #b8744c; /* Marrón principal del botón */
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
-  transition: all 0.25s ease;
-}
+    nav a {
+      background-color: #b8744c;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+      transition: all 0.25s ease;
+    }
 
-nav a:hover {
-  background-color: #8b4b2e; /* Marrón más oscuro al pasar el mouse */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
-}
-
+    nav a:hover {
+      background-color: #8b4b2e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    }
 
     /* ===== MODAL ===== */
     .modal {
@@ -198,56 +198,17 @@ nav a:hover {
       from { transform: translateY(40px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-    /* --- Sección IA --- */
-.bot-ia {
-  background-color: #fff3e6;
-  text-align: center;
-  padding: 80px 20px;
-  border-top: 2px solid #d4a574;
-}
-
-.bot-ia h2 {
-  color: #8b4b2e;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.bot-ia p {
-  color: #5a3a24;
-  font-size: 16px;
-  margin-bottom: 25px;
-}
-
-.btn-ia {
-  display: inline-block;
-  background-color: #8b4b2e;
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
-}
-
-.btn-ia:hover {
-  background-color: #a25f3c;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
   </style>
 </head>
 
 <body>
-  <header>
+  <header onclick="window.scrollTo({top:0, behavior:'smooth'})">
     <img src="assets/logo.png" alt="Logo OnlyPan" class="logo">
     <h1>OnlyPan S.R.L.</h1>
   </header>
 
   <nav>
-    <a hrey="productos.html">Productos</a>
+    <a href="productos.html">Productos</a>
     <a href="#" onclick="abrirModal('historia')">Nuestra Historia</a>
     <a href="#" onclick="abrirModal('vision')">Visión</a>
     <a href="#" onclick="abrirModal('mision')">Misión</a>
@@ -267,13 +228,12 @@ nav a:hover {
       </p>
     </div>
   </section>
+
   <section class="ideas-cuadro">
-  <h2>Ideas de Comida</h2>
-  <p>Descubrí formas deliciosas de disfrutar nuestros panes.</p>
-  <a href="ideas.html" class="btn">Ver ideas</a>
-
-
-
+    <h2>Ideas de Comida</h2>
+    <p>Descubrí formas deliciosas de disfrutar nuestros panes.</p>
+    <a href="ideas.html" class="btn">Ver ideas</a>
+  </section>
 
   <!-- MODAL -->
   <div id="modal" class="modal">
@@ -328,13 +288,10 @@ nav a:hover {
       const modal = document.getElementById('modal');
       if (event.target === modal) cerrarModal();
     };
-
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="SOKQOXLkzc9m6P9hCVWKO";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-
   </script>
-  
 </body>
 </html>
+
 
 
 
