@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyBot – Asistente IA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #fff6ef, #f8e3d2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #8b4b2e;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .chat-container {
+      background-color: #ffffff;
+      width: 420px;
+      max-width: 90%;
+      height: 520px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #fdf8f4;
+    }
+
+    .mensaje {
+      max-width: 80%;
+      padding: 12px 15px;
+      border-radius: 15px;
+      line-height: 1.4;
+      font-size: 14px;
+    }
+
+    .user {
+      align-self: flex-end;
+      background-color: #8b4b2e;
+      color: #fff;
+      border-bottom-right-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .bot {
+      align-self: flex-start;
+      background-color: #f2e1d4;
+      color: #4a2c1b;
+      border-bottom-left-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+      background-color: #fffaf5;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border: none;
+      padding: 15px;
+      font-size: 14px;
+      border-radius: 0;
+      outline: none;
+      background-color: transparent;
+    }
+
+    .chat-input button {
+      background-color: #8b4b2e;
+      color: #fff;
+      border: none;
+      padding: 0 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .chat-input button:hover {
+      background-color: #a35a3a;
+    }
+
+    ::placeholder {
+      color: #bcaea6;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 OnlyBot</h1>
+  <div class="chat-container">
+    <div id="mensajes" class="chat-messages"></div>
+    <div class="chat-input">
+      <input id="pregunta" placeholder="Escribí tu pregunta..." onkeydown="if(event.key==='Enter') enviar()" />
+      <button onclick="enviar()">➤</button>
+    </div>
+  </div>
+
+  <script>
+    const API_KEY = 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
+
+    async function enviar() {
+      const input = document.getElementById("pregunta");
+      const mensajes = document.getElementById("mensajes");
+      const texto = input.value.trim();
+      if (!texto) return;
+
+      const mensajeUsuario = document.createElement("div");
+      mensajeUsuario.classList.add("mensaje", "user");
+      mensajeUsuario.textContent = texto;
+      mensajes.appendChild(mensajeUsuario);
+      mensajes.scrollTop = mensajes.scrollHeight;
+      input.value = "";
+
+      const respuestaBot = document.createElement("div");
+      respuestaBot.classList.add("mensaje", "bot");
+      respuestaBot.textContent = "Escribiendo...";
+      mensajes.appendChild(respuestaBot);
+      mensajes.scrollTop = mensajes.scrollHeight;
+
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${API_KEY}`
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: texto }]
+          })
+        });
+
+        const data = await response.json();
+        const respuesta = data.choices?.[0]?.message?.content || "Lo siento, hubo un error 😔";
+        respuestaBot.textContent = respuesta;
+      } catch (err) {
+        respuestaBot.textContent = "Error al conectar con la IA 😞";
+      }
+
+      mensajes.scrollTop = mensajes.scrollHeight;
+    }
+  </script>
+</body>
+</html>
