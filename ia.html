@@ -116,7 +116,6 @@ footer {
 <footer>© 2025 OnlyPan S.R.L.</footer>
 
 <script>
-const OPENAI_API_KEY = "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"; // ⚠️ API key expuesta
 const chatContainer = document.getElementById("chat");
 const input = document.getElementById("userInput");
 const sendButton = document.getElementById("sendBtn");
@@ -141,23 +140,14 @@ async function sendMessage(){
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
   try{
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    const res = await fetch("/api/openai", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "system", content: "Eres OnlyBot, experto en panadería y recetas. Respondé cualquier consulta con tono amigable y útil." },
-          { role: "user", content: text }
-        ]
-      })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text })
     });
 
     const data = await res.json();
-    loading.textContent = data.choices?.[0]?.message?.content || "⚠️ No se obtuvo respuesta";
+    loading.textContent = data.reply || "⚠️ No se obtuvo respuesta";
 
   } catch(err){
     loading.textContent = "⚠️ Error de conexión";
@@ -171,4 +161,6 @@ input.addEventListener("keypress", e => { if(e.key==="Enter") sendMessage(); });
 
 </body>
 </html>
+
+
 
