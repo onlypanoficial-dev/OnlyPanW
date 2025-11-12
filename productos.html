@@ -34,25 +34,33 @@
       font-weight: 600;
     }
 
-    nav {
-      background: #d9b08c;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-      flex-wrap: wrap;
-    }
+nav {
+  background-color: #f6efe7; /* Fondo claro o beige suave */
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 14px 0;
+  /* border-bottom: 2px solid #d4a574;  <- la línea marrón, eliminada */
+}
 
-    nav a {
-      color: #3a2a1a;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+nav a {
+  background-color: #b8744c; /* Marrón principal del botón */
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+  transition: all 0.25s ease;
+}
 
-    nav a:hover {
-      color: #9b5c2b;
-    }
+nav a:hover {
+  background-color: #8b4b2e; /* Marrón más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
 
     h2 {
       text-align: center;
@@ -192,3 +200,4 @@
 
 </body>
 </html>
+
