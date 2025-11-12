@@ -118,15 +118,20 @@
     const API_KEY = "TU_API_KEY_AQUI"; // 🔹 Pegá tu API Key de OpenAI acá
     let recetasData = {};
 
-    // Cargar el archivo local con las recetas
-    fetch("recetas.json")
-      .then(res => res.json())
-      .then(data => recetasData = data)
-      .catch(() => console.log("No se pudo cargar recetas.json"));
+async function enviarPregunta() {
+  const pregunta = document.getElementById("inputPregunta").value;
+  const respuestaDiv = document.getElementById("respuesta");
 
-    const chatContainer = document.getElementById("chat");
-    const input = document.getElementById("user-input");
-    const sendButton = document.getElementById("send");
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: pregunta }),
+  });
+
+  const data = await res.json();
+  const texto = data.choices?.[0]?.message?.content || "No se obtuvo respuesta.";
+  respuestaDiv.innerText = texto;
+}
 
     // Busca en la base de datos local
     function buscarReceta(palabra) {
@@ -216,5 +221,7 @@ Ingredientes principales: ${r.ingredientes.join(", ")}.`;
   </script>
 </body>
 </html>
+
+
 
 
