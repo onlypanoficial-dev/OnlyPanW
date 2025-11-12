@@ -1,0 +1,72 @@
+{
+  "pan_de_hamburguesa": {
+    "ingredientes": ["harina", "sal", "azúcar", "levadura", "extracto de malta", "leche en polvo", "agua", "manteca pomada", "sésamo"],
+    "calorias": 270,
+    "proteinas": 8,
+    "grasas": 7,
+    "carbohidratos": 42
+  },
+  "pan_tipo_pizza": {
+    "ingredientes": ["harina", "polvos de hornear", "sal", "aceite (preferible oliva)", "agua caliente", "queso", "ingredientes para topping (ajo, albahaca, tomate, orégano)"],
+    "calorias": 220,
+    "proteinas": 7,
+    "grasas": 6,
+    "carbohidratos": 34
+  },
+  "pan_salvado": {
+    "ingredientes": ["harinas mixtas (incluyendo integral)", "levadura", "azúcar (para activar)", "semillas (remojadas)", "aceite", "agua", "sal"],
+    "calorias": 230,
+    "proteinas": 9,
+    "grasas": 5,
+    "carbohidratos": 38
+  },
+  "pan_queso_oregano": {
+    "ingredientes": ["harina", "agua", "levadura", "sal", "huevos", "manteca", "leche", "orégano", "queso rallado"],
+    "calorias": 260,
+    "proteinas": 9,
+    "grasas": 10,
+    "carbohidratos": 30
+  },
+  "pan_dulce_chips": {
+    "ingredientes": ["harina", "azúcar", "sal", "levadura", "huevos", "leche tibia", "vainilla", "ralladura (opcional)", "manteca", "chips de chocolate"],
+    "calorias": 350,
+    "proteinas": 6,
+    "grasas": 12,
+    "carbohidratos": 50
+  },
+  "pan_relleno_jamon_queso": {
+    "ingredientes": ["harina", "levadura", "sal", "agua", "aceite", "jamón", "queso"],
+    "calorias": 320,
+    "proteinas": 14,
+    "grasas": 12,
+    "carbohidratos": 30
+  },
+  "pan_de_campo": {
+    "ingredientes": ["harina", "pre-fermento (harina + levadura + agua)", "grasa", "agua", "sal"],
+    "calorias": 250,
+    "proteinas": 7,
+    "grasas": 3,
+    "carbohidratos": 45
+  },
+  "pan_frances": {
+    "ingredientes": ["harina", "sal", "levadura disuelta en agua tibia", "miel (opcional)"],
+    "calorias": 200,
+    "proteinas": 6,
+    "grasas": 2,
+    "carbohidratos": 40
+  },
+  "pan_integral": {
+    "ingredientes": ["harina integral", "semillas (hidratadas)", "levadura", "azúcar (para activar)", "aceite", "agua", "sal"],
+    "calorias": 220,
+    "proteinas": 8,
+    "grasas": 4,
+    "carbohidratos": 36
+  },
+  "pan_de_molde_sin_tacc": {
+    "ingredientes": ["harina sin TACC (mezcla apta)", "polvo de hornear", "sal", "leche tibia con azúcar y levadura", "huevos", "aceite"],
+    "calorias": 240,
+    "proteinas": 6,
+    "grasas": 8,
+    "carbohidratos": 36
+  }
+}
