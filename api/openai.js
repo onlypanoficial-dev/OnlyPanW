@@ -1,27 +1,29 @@
-export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).json({ error: "Solo POST" });
+async function sendMessage() {
+  const userText = input.value.trim();
+  if (!userText) return;
 
-  const { message } = req.body;
+  // Mostrar mensaje del usuario
+  mostrarMensaje(userText, "user");
+  input.value = "";
+
+  // Mostrar "Escribiendo..."
+  const loadingDiv = document.createElement("div");
+  loadingDiv.className = "message bot";
+  loadingDiv.textContent = "Escribiendo...";
+  chatContainer.appendChild(loadingDiv);
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const res = await fetch("/api/openai", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "system", content: "Eres OnlyBot, un asistente experto en panadería y productos de pan. Responde de forma amigable y clara." },
-          { role: "user", content: message }
-        ],
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userText })
     });
 
-    const data = await response.json();
-    res.status(200).json({ reply: data.choices[0].message.content });
+    const data = await res.json();
+    loadingDiv.textContent = data.reply || "⚠️ No se obtuvo respuesta.";
   } catch (err) {
-    res.status(500).json({ error: "Error en el servidor" });
+    loadingDiv.textContent = "⚠️ Error al conectar con IA.";
   }
+
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
