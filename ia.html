@@ -133,13 +133,14 @@ async function sendMessage(){
   if(!text) return;
   addMessage("user", text);
   input.value = "";
+
   const loading = document.createElement("div");
   loading.className = "message bot";
   loading.textContent = "Escribiendo...";
   chatContainer.appendChild(loading);
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
-  try{
+  try {
     const res = await fetch("/api/openai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -149,18 +150,17 @@ async function sendMessage(){
     const data = await res.json();
     loading.textContent = data.reply || "⚠️ No se obtuvo respuesta";
 
-  } catch(err){
+  } catch(err) {
     loading.textContent = "⚠️ Error de conexión";
     console.error(err);
   }
 }
 
 sendButton.addEventListener("click", sendMessage);
-input.addEventListener("keypress", e => { if(e.key==="Enter") sendMessage(); });
+input.addEventListener("keypress", e => { if(e.key === "Enter") sendMessage(); });
 </script>
 
 </body>
 </html>
-
 
 
