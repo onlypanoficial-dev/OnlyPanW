@@ -5,96 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OnlyBot | Asistente IA</title>
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #fffaf4;
-      color: #3e2a1b;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
-    header {
-      background-color: #8b4b2e;
-      color: white;
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    #chat {
-      flex-grow: 1;
-      width: 90%;
-      max-width: 600px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      margin-top: 30px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-    .message {
-      margin: 10px 0;
-      padding: 10px 14px;
-      border-radius: 10px;
-      max-width: 80%;
-      line-height: 1.5;
-    }
-    .user {
-      background-color: #f0c49c;
-      align-self: flex-end;
-      text-align: right;
-    }
-    .bot {
-      background-color: #f6eee4;
-      align-self: flex-start;
-    }
-    #input-area {
-      display: flex;
-      width: 90%;
-      max-width: 600px;
-      margin: 15px 0 25px;
-    }
-    input {
-      flex-grow: 1;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #d4a574;
-      font-size: 15px;
-      outline: none;
-    }
-    button {
-      background-color: #8b4b2e;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      margin-left: 10px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    button:hover {
-      background-color: #a8613a;
-      transform: scale(1.05);
-    }
-    footer {
-      font-size: 14px;
-      color: #8b4b2e;
-      margin-bottom: 10px;
-    }
+    body { font-family: "Poppins", sans-serif; background-color: #fffaf4; color: #3e2a1b; margin: 0; display: flex; flex-direction: column; align-items: center; height: 100vh; }
+    header { background-color: #8b4b2e; color: white; width: 100%; text-align: center; padding: 20px; font-size: 22px; font-weight: bold; letter-spacing: 1px; }
+    #chat { flex-grow: 1; width: 90%; max-width: 600px; background-color: #ffffff; border-radius: 12px; margin-top: 30px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); overflow-y: auto; display: flex; flex-direction: column; }
+    .message { margin: 10px 0; padding: 10px 14px; border-radius: 10px; max-width: 80%; line-height: 1.5; }
+    .user { background-color: #f0c49c; align-self: flex-end; text-align: right; }
+    .bot { background-color: #f6eee4; align-self: flex-start; }
+    #input-area { display: flex; width: 90%; max-width: 600px; margin: 15px 0 25px; }
+    input { flex-grow: 1; padding: 12px; border-radius: 8px; border: 1px solid #d4a574; font-size: 15px; outline: none; }
+    button { background-color: #8b4b2e; color: white; border: none; padding: 12px 20px; margin-left: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.25s; }
+    button:hover { background-color: #a8613a; transform: scale(1.05); }
+    footer { font-size: 14px; color: #8b4b2e; margin-bottom: 10px; }
   </style>
 </head>
 <body>
   <header>💬 OnlyBot — Tu asistente de panadería</header>
 
   <div id="chat">
-    <div class="message bot">¡Hola! Soy <b>OnlyBot</b> 🤖. Puedo ayudarte con dudas sobre nuestros productos, recetas o información nutricional. ¿Qué querés saber?</div>
+    <div class="message bot">¡Hola! Soy <b>OnlyBot</b> 🤖. Puedo ayudarte con dudas sobre nuestros productos, recetas o consejos de panadería. ¿Qué querés saber?</div>
   </div>
 
   <div id="input-area">
@@ -105,62 +33,81 @@
   <footer>© 2025 OnlyPan S.R.L.</footer>
 
   <script>
-    const OPENAI_API_KEY = "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"; // 👈 PONÉ TU CLAVE AQUÍ ENTRE COMILLAS
+    let recetasData = {};
+
+    // Cargar recetas locales
+    fetch("recetas.json")
+      .then(res => res.json())
+      .then(data => recetasData = data)
+      .catch(() => console.log("No se pudo cargar recetas.json"));
+
     const chatContainer = document.getElementById("chat");
     const input = document.getElementById("user-input");
     const sendButton = document.getElementById("send");
 
+    function mostrarMensaje(texto, clase) {
+      const div = document.createElement("div");
+      div.className = "message " + clase;
+      div.textContent = texto;
+      chatContainer.appendChild(div);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function buscarReceta(texto) {
+      texto = texto.toLowerCase();
+      for (let nombre in recetasData) {
+        if (nombre.includes(texto)) {
+          const r = recetasData[nombre];
+          return `🍞 ${nombre.replace(/_/g," ").toUpperCase()}:
+Calorías: ${r.calorias} kcal
+Proteínas: ${r.proteinas} g
+Grasas: ${r.grasas} g
+Carbohidratos: ${r.carbohidratos} g
+Ingredientes: ${r.ingredientes.join(", ")}.`;
+        }
+      }
+      return null;
+    }
+
     async function sendMessage() {
       const userText = input.value.trim();
       if (!userText) return;
-
-      const userMessage = document.createElement("div");
-      userMessage.className = "message user";
-      userMessage.textContent = userText;
-      chatContainer.appendChild(userMessage);
+      mostrarMensaje(userText, "user");
       input.value = "";
 
-      const loading = document.createElement("div");
-      loading.className = "message bot";
-      loading.textContent = "Escribiendo...";
-      chatContainer.appendChild(loading);
+      // Primero buscar en recetas locales
+      const receta = buscarReceta(userText);
+      if (receta) {
+        mostrarMensaje(receta, "bot");
+        return;
+      }
+
+      // Si no hay receta, llamar a OpenAI
+      const loadingDiv = document.createElement("div");
+      loadingDiv.className = "message bot";
+      loadingDiv.textContent = "Escribiendo...";
+      chatContainer.appendChild(loadingDiv);
       chatContainer.scrollTop = chatContainer.scrollHeight;
 
       try {
-        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        const res = await fetch("/api/openai", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${OPENAI_API_KEY}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: userText }],
-          }),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: userText })
         });
 
         const data = await res.json();
-        loading.remove();
-
-        const botMessage = document.createElement("div");
-        botMessage.className = "message bot";
-        botMessage.textContent =
-          data.choices?.[0]?.message?.content || "No se obtuvo respuesta.";
-        chatContainer.appendChild(botMessage);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        loadingDiv.textContent = data.reply || "⚠️ No se obtuvo respuesta.";
       } catch (err) {
-        loading.textContent = "⚠️ Error al conectar con la API.";
+        loadingDiv.textContent = "⚠️ Error al conectar con IA.";
       }
     }
 
     sendButton.addEventListener("click", sendMessage);
-    input.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendMessage();
-    });
+    input.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
   </script>
 </body>
 </html>
-
 
 
 
