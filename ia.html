@@ -105,35 +105,10 @@
   <footer>© 2025 OnlyPan S.R.L.</footer>
 
   <script>
-    const OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; // <-- poné tu clave entre comillas
-
-    let recetasData = {};
-
-    // Cargar el archivo local con las recetas
-    fetch("recetas.json")
-      .then(res => res.json())
-      .then(data => recetasData = data)
-      .catch(() => console.log("No se pudo cargar recetas.json"));
-
+    const OPENAI_API_KEY = "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"; // 👈 PONÉ TU CLAVE AQUÍ ENTRE COMILLAS
     const chatContainer = document.getElementById("chat");
     const input = document.getElementById("user-input");
     const sendButton = document.getElementById("send");
-
-    function buscarReceta(palabra) {
-      palabra = palabra.toLowerCase();
-      for (let nombre in recetasData) {
-        if (nombre.includes(palabra)) {
-          const r = recetasData[nombre];
-          return `🍞 ${nombre.replace(/_/g, " ").toUpperCase()}:
-Calorías: ${r.calorias} kcal
-Proteínas: ${r.proteinas} g
-Grasas: ${r.grasas} g
-Carbohidratos: ${r.carbohidratos} g
-Ingredientes principales: ${r.ingredientes.join(", ")}.`;
-        }
-      }
-      return null;
-    }
 
     async function sendMessage() {
       const userText = input.value.trim();
@@ -151,19 +126,6 @@ Ingredientes principales: ${r.ingredientes.join(", ")}.`;
       chatContainer.appendChild(loading);
       chatContainer.scrollTop = chatContainer.scrollHeight;
 
-      // Intentar buscar una receta local
-      const infoReceta = buscarReceta(userText);
-      if (infoReceta) {
-        loading.remove();
-        const botMessage = document.createElement("div");
-        botMessage.className = "message bot";
-        botMessage.textContent = infoReceta;
-        chatContainer.appendChild(botMessage);
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-        return;
-      }
-
-      // Si no hay receta, preguntar a OpenAI
       try {
         const res = await fetch("https://api.openai.com/v1/chat/completions", {
           method: "POST",
@@ -182,12 +144,12 @@ Ingredientes principales: ${r.ingredientes.join(", ")}.`;
 
         const botMessage = document.createElement("div");
         botMessage.className = "message bot";
-        botMessage.textContent = data.choices?.[0]?.message?.content || "No se obtuvo respuesta.";
+        botMessage.textContent =
+          data.choices?.[0]?.message?.content || "No se obtuvo respuesta.";
         chatContainer.appendChild(botMessage);
         chatContainer.scrollTop = chatContainer.scrollHeight;
-      } catch (error) {
-        console.error(error);
-        loading.textContent = "Error al conectar con la IA.";
+      } catch (err) {
+        loading.textContent = "⚠️ Error al conectar con la API.";
       }
     }
 
@@ -198,8 +160,6 @@ Ingredientes principales: ${r.ingredientes.join(", ")}.`;
   </script>
 </body>
 </html>
-
-
 
 
 
