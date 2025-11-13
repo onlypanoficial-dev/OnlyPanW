@@ -15,8 +15,36 @@ a.boton{display:inline-block;margin:5px 0;padding:10px 20px;background:#9b5c2b;c
 a.boton:hover{background:#b8744c;transform:scale(1.05);}
 .descripcion{text-align:left;line-height:1.6;background:#faf7f4;padding:20px;border-radius:10px;margin-top:20px;}
 footer{background:#9b5c2b;color:white;text-align:center;padding:20px 0;margin-top:60px;font-size:14px;}
+  /* 🔙 Flecha para volver atrás */
+.flecha-volver {
+  position: fixed;
+  top: 20px;
+  left: 25px;
+  font-size: 34px;
+  color: #8b4b2e; /* marrón del diseño */
+  cursor: pointer;
+  transition: 0.25s;
+  z-index: 1000;
+}
+
+.flecha-volver:hover {
+  color: #b8744c; /* tono más claro al pasar el mouse */
+  transform: translateX(-3px);
+}
+
+/* 📱 Ajuste para celular */
+@media (max-width: 768px) {
+  .flecha-volver {
+    font-size: 30px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
 </style></head>
 <body>
+  <span class="flecha-volver" onclick="window.history.back();">&#8592;</span>
+
 <header><a href="../index.html"><img src="../assets/logo.png"></a><h1>OnlyPan S.R.L.</h1></header>
 
 <section class="producto-detalle">
@@ -39,5 +67,6 @@ footer{background:#9b5c2b;color:white;text-align:center;padding:20px 0;margin-to
 <footer>© 2025 OnlyPan S.R.L. | Panadería Artesanal | Todos los derechos reservados.</footer>
 </body>
 </html>
+
 
 
