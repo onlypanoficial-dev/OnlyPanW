@@ -165,9 +165,36 @@
         font-size: 14px;
       }
     }
+    /* 🔙 Flecha para volver atrás */
+.flecha-volver {
+  position: fixed;
+  top: 20px;
+  left: 25px;
+  font-size: 34px;
+  color: #8b4b2e; /* marrón del diseño */
+  cursor: pointer;
+  transition: 0.25s;
+  z-index: 1000;
+}
+
+.flecha-volver:hover {
+  color: #b8744c; /* tono más claro al pasar el mouse */
+  transform: translateX(-3px);
+}
+
+/* 📱 Ajuste para celular */
+@media (max-width: 768px) {
+  .flecha-volver {
+    font-size: 30px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
   </style>
 </head>
 <body>
+<span class="flecha-volver" onclick="window.history.back();">&#8592;</span>
 
   <header>
     <a href="index.html"><img src="assets/logo.png" alt="Logo OnlyPan"></a>
@@ -281,5 +308,6 @@
 
 </body>
 </html>
+
 
 
