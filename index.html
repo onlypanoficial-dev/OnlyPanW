@@ -198,6 +198,84 @@
       from { transform: translateY(40px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+    /* ---------- 📱 OPTIMIZACIÓN PARA CELULARES ---------- */
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  header img {
+    height: 45px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  section {
+    padding: 25px 5%;
+  }
+
+  .cuadro,
+  .cuadro-info,
+  .productos,
+  .ideas,
+  .contacto {
+    width: 100%;
+    max-width: 95%;
+    margin: auto;
+  }
+
+  .productos img,
+  .ideas img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 18px;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .productos img {
+    height: 130px;
+  }
+}
+
   </style>
 </head>
 
@@ -295,6 +373,7 @@
   </script>
 </body>
 </html>
+
 
 
 
