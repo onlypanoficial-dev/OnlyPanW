@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Pan de Molde Sin TACC - OnlyPan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {font-family: Arial, sans-serif; background:#f8f5f2; color:#3a2a1a; margin:0; padding:0;}
-    header {background:#9b5c2b; color:white; padding:16px; text-align:center;}
-    .container {max-width:800px; margin:40px auto; background:white; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-    img {width:100%; border-radius:12px; margin-bottom:20px;}
-    h1 {margin-bottom:10px;}
-    a.volver {display:inline-block; margin-top:20px; color:#9b5c2b; text-decoration:none; font-weight:700;}
-    a.volver:hover {text-decoration:underline;}
-  </style>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pan de Molde Sin TACC | OnlyPan S.R.L.</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Poppins',sans-serif;background:#f8f5f2;color:#3a2a1a;margin:0;padding:0;}
+header{background:#9b5c2b;color:white;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 0;}
+header img{height:45px;cursor:pointer;}
+.producto-detalle{display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 20px;max-width:800px;margin:auto;background:white;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.producto-detalle img{width:100%;max-width:400px;border-radius:10px;}
+h2{color:#9b5c2b;margin:20px 0 10px;}
+.precio{font-size:28px;color:#3a2a1a;font-weight:700;background:#f0e2d0;padding:10px 18px;border-radius:8px;margin-bottom:15px;}
+a.boton{display:inline-block;margin:5px 0;padding:10px 20px;background:#9b5c2b;color:white;text-decoration:none;border-radius:8px;font-weight:600;transition:0.3s;}
+a.boton:hover{background:#b8744c;transform:scale(1.05);}
+.descripcion{text-align:left;line-height:1.6;background:#faf7f4;padding:20px;border-radius:10px;margin-top:20px;}
+footer{background:#9b5c2b;color:white;text-align:center;padding:20px 0;margin-top:60px;font-size:14px;}
+</style></head>
 <body>
-  <header><h2>OnlyPan</h2></header>
-  <div class="container">
-    <img src="../assets/pan-sintacc.jpg" alt="Pan de molde sin TACC">
-    <h1>Pan de Molde Sin TACC</h1>
-    <p><strong>Procedimiento:</strong></p>
-    <p>
-    1. Mezclar harina, polvo de hornear y sal.<br>
-    2. Activar levadura con parte de leche tibia y azúcar. Reposar hasta espumar.<br>
-    3. Agregar levadura, huevos, resto de leche y aceite a los secos. Mezclar bien.<br>
-    4. La masa queda chiclosa, lo que da elasticidad.<br>
-    5. Aceitar molde (no llenarlo más de la mitad).<br>
-    6. Precalentar horno a 180°C mientras la mezcla reposa.<br>
-    7. Hornear 30–40 minutos según el horno.<br>
-    8. Dejar enfriar antes de desmoldar.<br>
-    </p>
-    <a href="../index.html" class="volver">← Volver a los productos</a>
+<header><a href="../index.html"><img src="../assets/logo.png"></a><h1>OnlyPan S.R.L.</h1></header>
+
+<section class="producto-detalle">
+  <img src="../assets/pan-sintacc.jpg" alt="Pan de Molde Sin TACC">
+  <h2>Pan de Molde Sin TACC</h2>
+  <p class="precio">$1400</p>
+  <a href="https://www.instagram.com/onlypansrl/" target="_blank" class="boton">Pedir por Instagram</a>
+  <div class="descripcion">
+    <h3>Ingredientes:</h3>
+    <ul>
+      <li>Harina sin gluten</li>
+      <li>Huevos</li>
+      <li>Leche y aceite</li>
+      <li>Polvo de hornear</li>
+      <li>Levadura apta celíacos</li>
+      <li>Sal y azúcar</li>
+    </ul>
   </div>
+  <a href="../productos.html" class="boton">← Volver a Productos</a>
+</section>
+
+<footer>© 2025 OnlyPan S.R.L. | Panadería Artesanal | Todos los derechos reservados.</footer>
 </body>
 </html>
+
+
