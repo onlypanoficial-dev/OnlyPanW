@@ -34,33 +34,31 @@
       font-weight: 600;
     }
 
-nav {
-  background-color: #f6efe7; /* Fondo claro o beige suave */
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  padding: 14px 0;
-  /* border-bottom: 2px solid #d4a574;  <- la línea marrón, eliminada */
-}
+    nav {
+      background-color: #f6efe7;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 14px 0;
+    }
 
-nav a {
-  background-color: #b8744c; /* Marrón principal del botón */
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
-  transition: all 0.25s ease;
-}
+    nav a {
+      background-color: #b8744c;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+      transition: all 0.25s ease;
+    }
 
-nav a:hover {
-  background-color: #8b4b2e; /* Marrón más oscuro al pasar el mouse */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
-}
-
+    nav a:hover {
+      background-color: #8b4b2e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    }
 
     h2 {
       text-align: center;
@@ -69,51 +67,81 @@ nav a:hover {
       font-size: 28px;
     }
 
+    /* --- Contenedor de productos --- */
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
       padding: 40px 10%;
     }
 
     .producto {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      position: relative;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
       transition: 0.3s;
     }
 
     .producto:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     }
 
     .producto img {
       width: 100%;
-      height: 150px;
+      height: 250px;
       object-fit: cover;
+      display: block;
     }
 
-    .producto h3 {
-      margin: 10px 0 5px;
-      color: #9b5c2b;
-    }
-
-    .producto a {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 14px;
-      background: #9b5c2b;
+    /* --- Capa difuminada sobre la imagen --- */
+    .info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
       color: white;
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+
+    .producto:hover .info {
+      opacity: 1;
+    }
+
+    .info h3 {
+      font-size: 22px;
+      margin: 10px 0 5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .info p {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      background: #dcb48e;
+      color: #3a2a1a;
+      padding: 8px 16px;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
-    .producto a:hover {
-      background: #b97445;
+    .btn:hover {
+      background: #b8744c;
+      color: white;
     }
 
     footer {
@@ -124,74 +152,127 @@ nav a:hover {
       margin-top: 60px;
       font-size: 14px;
     }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .producto img {
+        height: 200px;
+      }
+      .info h3 {
+        font-size: 18px;
+      }
+      .info p {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="assets/logo.png" alt="Logo OnlyPan">
+    <a href="index.html"><img src="assets/logo.png" alt="Logo OnlyPan"></a>
     <h1>OnlyPan S.R.L.</h1>
   </header>
 
   <nav>
     <a href="index.html">Inicio</a>
-    <a href="productos.html" class="activo">Productos</a>
     <a href="#" onclick="alert('Volver al inicio para ver la historia');">Nuestra Historia</a>
   </nav>
 
   <h2>Nuestros Productos</h2>
 
   <section class="productos">
+
     <div class="producto">
       <img src="assets/pan-hamburguesa.jpg" alt="Pan de Hamburguesa">
-      <h3>Pan de Hamburguesa</h3>
-      <a href="recetas/hamburguesa.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan de Hamburguesa</h3>
+        <p>$800</p>
+        <a href="recetas/hamburguesa.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-pizza.jpg" alt="Pan tipo Pizza">
-      <h3>Pan Tipo Pizza</h3>
-      <a href="recetas/pizza.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan Tipo Pizza</h3>
+        <p>$900</p>
+        <a href="recetas/pizza.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-salvado.jpg" alt="Pan de Salvado">
-      <h3>Pan de Salvado</h3>
-      <a href="recetas/salvado.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan de Salvado</h3>
+        <p>$950</p>
+        <a href="recetas/salvado.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-queso.jpg" alt="Pan de Queso y Orégano">
-      <h3>Pan de Queso y Orégano</h3>
-      <a href="recetas/queso.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan de Queso y Orégano</h3>
+        <p>$1000</p>
+        <a href="recetas/queso.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
-      <img src="assets/pan-dulce.jpg" alt="Pan Dulce">
-      <h3>Pan Dulce con Chips</h3>
-      <a href="recetas/dulce.html">Ver Receta</a>
+      <img src="assets/pan-dulce.jpg" alt="Pan Dulce con Chips">
+      <div class="info">
+        <h3>Pan Dulce con Chips</h3>
+        <p>$1200</p>
+        <a href="recetas/dulce.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
-      <img src="assets/pan-relleno.jpg" alt="Pan Relleno">
-      <h3>Pan Relleno</h3>
-      <a href="recetas/relleno.html">Ver Receta</a>
+      <img src="assets/pan-relleno.jpg" alt="Pan Relleno de Jamón y Queso">
+      <div class="info">
+        <h3>Pan Relleno Jamón y Queso</h3>
+        <p>$1100</p>
+        <a href="recetas/relleno.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-campo.jpg" alt="Pan de Campo">
-      <h3>Pan de Campo</h3>
-      <a href="recetas/campo.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan de Campo</h3>
+        <p>$1000</p>
+        <a href="recetas/campo.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-frances.jpg" alt="Pan Francés">
-      <h3>Pan Francés</h3>
-      <a href="recetas/frances.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan Francés</h3>
+        <p>$950</p>
+        <a href="recetas/frances.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-integral.jpg" alt="Pan Integral">
-      <h3>Pan Integral</h3>
-      <a href="recetas/integral.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan Integral</h3>
+        <p>$1050</p>
+        <a href="recetas/integral.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
     <div class="producto">
       <img src="assets/pan-sintacc.jpg" alt="Pan Sin TACC">
-      <h3>Pan Sin TACC</h3>
-      <a href="recetas/sintacc.html">Ver Receta</a>
+      <div class="info">
+        <h3>Pan Sin TACC</h3>
+        <p>$1150</p>
+        <a href="recetas/sintacc.html" class="btn">Ver producto</a>
+      </div>
     </div>
+
   </section>
 
   <footer>
@@ -200,6 +281,5 @@ nav a:hover {
 
 </body>
 </html>
-
 
 
